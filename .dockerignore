@@ -1,0 +1,7 @@
+# git
+.git/
+.gitignore
+
+# Docs
+README.md
+AUTHOR.md

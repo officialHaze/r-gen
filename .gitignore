@@ -1,0 +1,7 @@
+# env related
+.env
+.env.*
+!.env.local
+tmp/
+bin/
+TODO.txt

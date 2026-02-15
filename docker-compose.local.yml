@@ -1,0 +1,19 @@
+services:
+  report-gen-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    container_name: "report-gen-server"
+    ports:
+      - "4020:4020" # Map host port with container port
+    volumes:
+      - .:/report-gen-engine # For monitoring changes and hot reloading inside docker container
+      - /report-gen-engine/tmp # Prevent from overwriting
+      - /report-gen-engine/public # Prevent from overwriting
+      - .env.local:/report-gen-engine/.env.local # map the env file to the one in docker container for development environment
+    networks:
+      - kakushibe_ikki
+
+networks:
+  kakushibe_ikki:
+    external: true

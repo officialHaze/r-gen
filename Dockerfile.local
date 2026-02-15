@@ -1,0 +1,34 @@
+FROM golang:1.25-alpine
+
+# Install Chromium + required runtime deps
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates \
+    ttf-dejavu
+
+# Chromium binary path
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROMEDP_HEADLESS=true
+
+# Set the working directory
+WORKDIR /report-gen-engine
+
+# Install air for hot reload during development
+RUN go install github.com/air-verse/air@latest
+
+# Copy the mod and sum files
+COPY go.* .
+
+# COPY entire codebase
+COPY . .
+
+# Install the dependencies
+RUN go mod download
+
+# Expose the port for this service
+EXPOSE 4020
+
+CMD ["air", "-c", ".air.toml"]
