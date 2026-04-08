@@ -17,6 +17,8 @@ func Generate() error {
 		UPLOAD_LIMIT:          conf.Upload_Limit,
 		PDF_MAX_MERGE_ALLOWED: conf.Pdf_Max_Merge_Allowed,
 		GEN_QUOTA:             conf.Gen_Quota,
+		RATE_LIMIT: 		   conf.Rate_Limit,
+		
 	}
 
 	return nil
@@ -29,4 +31,5 @@ type Settings struct {
 	UPLOAD_LIMIT          int
 	PDF_MAX_MERGE_ALLOWED int
 	GEN_QUOTA             string
+	RATE_LIMIT	          int		
 }

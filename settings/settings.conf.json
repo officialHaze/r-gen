@@ -4,5 +4,6 @@
   "upload_max_size": "10MB",
   "gen_quota": "100MB",
   "upload_limit": 100000000,
-  "pdf_max_merge_allowed": 2
+  "pdf_max_merge_allowed": 2,
+  "rate_limit":5
 }
