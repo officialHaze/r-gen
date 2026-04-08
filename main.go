@@ -45,6 +45,8 @@ func init() {
 func main() {
 	log.Printf(" ****** PROJECT Running In %s Environment ******", strings.ToUpper(os.Getenv("ENV")))
 
+	util.StartTokenBucket()
+	
 	// Start the server
 	server.Start()
 }

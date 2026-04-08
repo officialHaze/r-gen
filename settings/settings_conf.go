@@ -32,4 +32,5 @@ type SettingsConf struct {
 	Upload_Limit          int    `json:"upload_limit"`
 	Pdf_Max_Merge_Allowed int    `json:"pdf_max_merge_allowed"`
 	Gen_Quota             string `json:"gen_quota"`
+	Rate_Limit			  int	 `json:"rate_limit"`
 }
